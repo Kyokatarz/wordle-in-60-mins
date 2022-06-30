@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, ReactText } from 'react'
 
 const style: CSSProperties = {
   display: 'flex',
@@ -6,15 +6,28 @@ const style: CSSProperties = {
 }
 
 type Props = {
-  value: string
   onSubmit: (value: string) => void
 }
 
-const InputBar = ({ value, onSubmit }: Props) => {
+const InputBar = ({ onSubmit }: Props) => {
+  const [value, setValue] = React.useState('')
+
+  const onButtonClick = () => {
+    onSubmit(value)
+    setValue('')
+  }
+
+  const onValueChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    if (e.target.value.length > 5) return
+    setValue(e.target.value)
+  }
+
   return (
     <div style={style}>
-      <input type='text' />
-      <button type='button'>Submit</button>
+      <input type='text' value={value} onChange={onValueChange} />
+      <button type='button' onClick={onButtonClick}>
+        Submit
+      </button>
     </div>
   )
 }

@@ -5,19 +5,17 @@ import WordHolder from './components/WordHolder'
 import useFetchWords from './hooks/useFetchWords'
 
 function App() {
-  const [value, setValue] = React.useState('')
   const [submitHistory, setSubmitHistory] = React.useState<string[]>([])
 
   const [word] = useFetchWords()
 
   const onSubmit = (value: string) => {
     setSubmitHistory([...submitHistory, value])
-    setValue('')
   }
 
   return (
     <div className='App'>
-      <InputBar value={value} onSubmit={onSubmit} />
+      <InputBar onSubmit={onSubmit} />
       <WordHolder word={word} />
     </div>
   )
