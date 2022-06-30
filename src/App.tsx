@@ -5,18 +5,20 @@ import WordHolder from './components/WordHolder'
 import useFetchWords from './hooks/useFetchWords'
 
 function App() {
-  const [submitHistory, setSubmitHistory] = React.useState<string[]>([])
+  const [guessHistory, setGuessHistory] = React.useState<string[]>([])
 
   const [word] = useFetchWords()
 
   const onSubmit = (value: string) => {
-    setSubmitHistory([...submitHistory, value])
+    setGuessHistory([...guessHistory, value])
   }
 
   return (
     <div className='App'>
       <InputBar onSubmit={onSubmit} />
-      <WordHolder word={word} />
+      {guessHistory.map((guessed) => (
+        <WordHolder word={word} guessed={guessed} />
+      ))}
     </div>
   )
 }
