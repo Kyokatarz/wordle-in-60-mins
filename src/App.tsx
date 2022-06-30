@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
+import useFetchWords from './hooks/useFetchWords'
+import WordHolder from './components/WordHolder'
 
 function App() {
+  const [word] = useFetchWords()
+
+  console.log('Render')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <WordHolder word={word} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default React.memo(App)
