@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
 import useFetchWords from './hooks/useFetchWords'
 import WordHolder from './components/WordHolder'
