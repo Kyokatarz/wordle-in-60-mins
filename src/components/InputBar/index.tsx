@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactText } from 'react'
+import React, { CSSProperties } from 'react'
 
 const style: CSSProperties = {
   display: 'flex',

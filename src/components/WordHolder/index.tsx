@@ -14,8 +14,8 @@ const style: CSSProperties = {
 const WordHolder = ({ word, guessed }: Props) => {
   return (
     <div style={style}>
-      {word.split('').map((letter, index) => {
-        const isRightPlace = guessed[index] === letter
+      {guessed.split('').map((letter, index) => {
+        const isRightPlace = word[index] === letter
         const isNotInTheWord = !word.includes(letter)
         const isWrongPlace = word.includes(letter) && !isRightPlace
 
