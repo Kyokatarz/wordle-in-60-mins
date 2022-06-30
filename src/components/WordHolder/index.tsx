@@ -21,6 +21,7 @@ const WordHolder = ({ word, guessed }: Props) => {
 
         return (
           <LetterTile
+            key={index}
             letter={letter}
             isRightPlace={isRightPlace}
             isNotInTheWord={isNotInTheWord}

@@ -16,8 +16,8 @@ function App() {
   return (
     <div className='App'>
       <InputBar onSubmit={onSubmit} />
-      {guessHistory.map((guessed) => (
-        <WordHolder word={word} guessed={guessed} />
+      {guessHistory.map((guessed, index) => (
+        <WordHolder word={word} guessed={guessed} key={index} />
       ))}
     </div>
   )
