@@ -12,7 +12,8 @@ type Props = {
 const InputBar = ({ onSubmit }: Props) => {
   const [value, setValue] = React.useState('')
 
-  const onButtonClick = () => {
+  const onButtonClick = (e: React.FormEvent) => {
+    e.preventDefault()
     onSubmit(value)
     setValue('')
   }
@@ -23,12 +24,12 @@ const InputBar = ({ onSubmit }: Props) => {
   }
 
   return (
-    <div style={style}>
+    <form onSubmit={onButtonClick} style={style}>
       <input type='text' value={value} onChange={onValueChange} />
-      <button type='button' onClick={onButtonClick}>
+      <button type='submit' onClick={onButtonClick}>
         Submit
       </button>
-    </div>
+    </form>
   )
 }
 
